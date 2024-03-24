@@ -36,7 +36,7 @@ variable "egress_sg_port" {
 variable "subnet_id" {
   type        = string
   description = "VPC ID where the security"
-  default     = "subnet-08dc85862f4903222"
+  default     = ""
 
 }
 
@@ -52,7 +52,7 @@ variable "launched" {
     type        = bool
     default = true
 }
-variable "customami" {
+variable "cami_jen" {
     type = string
     default = ""
   
