@@ -10,12 +10,14 @@ pipeline {
         stage('Build and Test'){
             steps{
                 sh 'mvn install'
+                bat 'mvn install' // windows
                 //sh 'java -version'
             }
         }
         stage('test'){
             steps{
                 sh 'mvn test'
+                bat 'mvn test' // windows 
             }
         }
     }
