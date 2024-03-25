@@ -3,7 +3,8 @@ pipeline {
     stages{
         stage("Fetch git code"){
             steps {
-                git branch : 'main', url:'https://github.com/computedev/Devops-tools.git'
+                // git branch : 'paac', url:'https://github.com/computedev/Devops-tools.git'
+                git branch : 'paac', url:'https://github.com/devopshydclub/vprofile-project.git'
             }
         }
         stage('Build and Test'){
