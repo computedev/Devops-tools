@@ -79,6 +79,7 @@ resource "aws_instance" "jenkins" {
   # ami           = var.launched== "False"?data.aws_ami.ubuntu.id : var.customami
   ami= var.cami_jen
   instance_type = "t2.micro"
+  #instance_type="t2.small"
   vpc_security_group_ids = [aws_security_group.allow_ports.id]
   subnet_id = var.subnet_id
   private_ip = "10.0.1.40"
@@ -98,13 +99,14 @@ output "PublicIP-jenkins" {
 
 resource "aws_instance" "nexus" {
   ami = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
+  # instance_type = "t2.micro"
+  instance_type="t2.small"
   vpc_security_group_ids = [aws_security_group.allow_ports.id]
   subnet_id = var.subnet_id
   private_ip = "10.0.1.41"
   key_name               = "key-all" #aws_key_pair.deployer.key_name
   associate_public_ip_address=true
-  user_data = file("../userdata/nexus-setup.sh")
+  user_data = file("../userdata/nexus-ubu.sh")
 
   tags={
       Name="nexus"
@@ -117,7 +119,9 @@ output "PublicIP-nexus" {
 
 resource "aws_instance" "sonar" {
   ami = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
+  #instance_type = "t2.micro"
+  # instance_type="t2.small"
+  instance_type="t2.medium"
   vpc_security_group_ids = [aws_security_group.allow_ports.id]
   subnet_id = var.subnet_id
   private_ip = "10.0.1.42"

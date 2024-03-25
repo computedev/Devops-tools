@@ -1,7 +1,13 @@
 #!/bin/bash
 sudo -i
-sleep 10
-yum install java-1.8.0-openjdk.x86_64 wget -y   
+sleep 2
+sudo apt update -y
+
+sleep 5
+# sudo apt-get update -y
+
+#apt-get install java-1.8.0-openjdk.x86_64 wget -y   
+sudo apt install openjdk-8-jdk -y   
 mkdir -p /opt/nexus/   
 mkdir -p /tmp/nexus/                           
 cd /tmp/nexus/

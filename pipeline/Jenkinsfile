@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages{
+        stage("Fetch git code"){
+            steps {
+                git branch : 'main', url:'https://github.com/computedev/Devops-tools.git'
+            }
+        }
+        stage('Build and Test'){
+            steps{
+                sh 'mvn install'
+                //sh 'java -version'
+            }
+        }
+        stage('test'){
+            steps{
+                sh 'mvn test'
+            }
+        }
+    }
+}
