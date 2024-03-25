@@ -33,11 +33,12 @@ pipeline {
         }
         stage('sonar Analysis'){
             environment{
-                scannerHome= tool 'sonar-16'
+                scannerHome= tool 'sonar1'
             }
                 steps{
                     withSonarQubeEnv('My SonarQube Server'){
-                        sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
+                        sh '''${scannerHome}/bin/sonar-scanner -Dsonar.login=${{ secrets.SONAR_TOKEN }} ...'''
+                        sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=Niranjan-web-artifact \
                         -Dsonar.projectName=Devops-tools \
                         -Dsonar.projectVersion=1.0 \
                         -Dsonar.sources=src/ \
