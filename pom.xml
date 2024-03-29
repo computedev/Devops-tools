@@ -132,6 +132,16 @@
                     </webApp>
                 </configuration>
             </plugin>
+		<plugin>
+                  <groupId>org.jacoco</groupId>
+                  <artifactId>jacoco-maven-plugin</artifactId>
+                  <version>...</version>
+                  <configuration>
+                    <excludes>
+                      <exclude>sun/util/resources/**</exclude>
+                    </excludes>
+                  </configuration>
+		</plugin>
 		<!-- CODE COVERAGE -->
 		    <plugin>
                      <groupId>org.apache.maven.plugins</groupId>
